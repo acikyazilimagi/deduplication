@@ -31,7 +31,3 @@ async def is_duplicate(request: Request) -> Response:
 
     except Exception as ex:
         raise HTTPException(status_code=500, detail=(ex))
-
-
-if __name__ == "__main__":
-    uvicorn.run(app, host=APP_HOST, port=APP_PORT)
