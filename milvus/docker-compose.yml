@@ -17,6 +17,7 @@ services:
     container_name: milvus-minio
     image: minio/minio:RELEASE.2022-03-17T06-34-49Z
     environment:
+      # FIXME Hide these keys
       MINIO_ACCESS_KEY: minioadmin
       MINIO_SECRET_KEY: minioadmin
     ports:
@@ -31,8 +32,8 @@ services:
       timeout: 20s
       retries: 3
 
-  standalone:
-    container_name: milvus-standalone
+  milvus:
+    container_name: milvus
     image: milvusdb/milvus:v2.2.3
     command: ["milvus", "run", "standalone"]
     environment:
