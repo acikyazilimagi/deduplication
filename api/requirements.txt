@@ -1,3 +1,9 @@
-fastapi==0.90.1
-uvicorn==0.20.0
+environs==9.5.0
+fastapi==0.91.0
+numpy==1.23.4
+pydantic==1.10.4
 pymilvus==2.2.2
+scikit_learn==1.2.1
+sentence_transformers==2.2.2
+torch==1.13.1
+uvicorn==0.20.0
