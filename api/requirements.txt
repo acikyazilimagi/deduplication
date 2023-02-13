@@ -1,0 +1,3 @@
+fastapi==0.90.1
+uvicorn==0.20.0
+pymilvus==2.2.2
