@@ -13,11 +13,11 @@
   - **minio**:
       - CPU: 0.5 vCPU
       - Memory: 1 GB
-- All of them will running on **ECS**
-- **Milvus** container needs **Network Load Balancer** because its runs **gRPC** server
+      - S3 Bucket (name: deduplication-milvus-minio-bucket) for remote S3 write
+- Running on **EC2**
+- **Milvus** needs **Network Load Balancer** because its runs **gRPC** server
   - gRPC Port: 19530
 
 ### Deduplication Project Architecture
 
 ![image](https://user-images.githubusercontent.com/20394555/218554876-1dee9de1-865f-40b4-826e-aa1cd6661ea5.png)
-
