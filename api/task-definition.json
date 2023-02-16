@@ -75,7 +75,7 @@
       "memoryReservation": null,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "deduplication-api-service",
+      "image": "366354050833.dkr.ecr.eu-central-1.amazonaws.com/base-ecr:a048bd429c345929f7e0e418cd2425cd7eef8e8b",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,
@@ -102,7 +102,7 @@
     "EC2",
     "FARGATE"
   ],
-  "taskDefinitionArn": "arn:aws:ecs:eu-central-1:366354050833:task-definition/deduplication-api-TD:1",
+  "taskDefinitionArn": "arn:aws:ecs:eu-central-1:366354050833:task-definition/deduplication-api-TD:4",
   "family": "deduplication-api-TD",
   "requiresAttributes": [
     {
@@ -121,7 +121,25 @@
       "targetId": null,
       "targetType": null,
       "value": null,
+      "name": "com.amazonaws.ecs.capability.ecr-auth"
+    },
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
       "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+    },
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
+      "name": "ecs.capability.secrets.asm.environment-variables"
+    },
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
+      "name": "ecs.capability.execution-role-ecr-pull"
     },
     {
       "targetId": null,
@@ -149,7 +167,7 @@
   "networkMode": "awsvpc",
   "runtimePlatform": null,
   "cpu": "1024",
-  "revision": 1,
+  "revision": 4,
   "status": "ACTIVE",
   "inferenceAccelerators": null,
   "proxyConfiguration": null,
