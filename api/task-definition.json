@@ -1,0 +1,157 @@
+{
+  "ipcMode": null,
+  "executionRoleArn": "arn:aws:iam::366354050833:role/ecsServiceRole",
+  "containerDefinitions": [
+    {
+      "dnsSearchDomains": null,
+      "environmentFiles": null,
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "secretOptions": null,
+        "options": {
+          "awslogs-group": "/ecs/deduplication-api",
+          "awslogs-region": "eu-central-1",
+          "awslogs-create-group": "true",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "entryPoint": null,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "protocol": "tcp",
+          "containerPort": 80
+        }
+      ],
+      "command": null,
+      "linuxParameters": null,
+      "cpu": 1024,
+      "environment": [],
+      "resourceRequirements": null,
+      "ulimits": null,
+      "dnsServers": null,
+      "mountPoints": [],
+      "workingDirectory": null,
+      "secrets": [
+        {
+          "valueFrom": "arn:aws:secretsmanager:eu-central-1:366354050833:secret:/projects/deduplication-api-SjnR4i:DEDUPLICATION_API_KEY::",
+          "name": "DEDUPLICATION_API_KEY"
+        },
+        {
+          "valueFrom": "arn:aws:secretsmanager:eu-central-1:366354050833:secret:/projects/deduplication-api-SjnR4i:MILVUS_DB_ALIAS::",
+          "name": "MILVUS_DB_ALIAS"
+        },
+        {
+          "valueFrom": "arn:aws:secretsmanager:eu-central-1:366354050833:secret:/projects/deduplication-api-SjnR4i:MILVUS_DB_URI::",
+          "name": "MILVUS_DB_URI"
+        },
+        {
+          "valueFrom": "arn:aws:secretsmanager:eu-central-1:366354050833:secret:/projects/deduplication-api-SjnR4i:MILVUS_DB_USERNAME::",
+          "name": "MILVUS_DB_USERNAME"
+        },
+        {
+          "valueFrom": "arn:aws:secretsmanager:eu-central-1:366354050833:secret:/projects/deduplication-api-SjnR4i:MILVUS_DB_PASSWORD::",
+          "name": "MILVUS_DB_PASSWORD"
+        },
+        {
+          "valueFrom": "arn:aws:secretsmanager:eu-central-1:366354050833:secret:/projects/deduplication-api-SjnR4i:MILVUS_DB_SECURE::",
+          "name": "MILVUS_DB_SECURE"
+        },
+        {
+          "valueFrom": "arn:aws:secretsmanager:eu-central-1:366354050833:secret:/projects/deduplication-api-SjnR4i:MILVUS_DB_COLLECTION_NAME::",
+          "name": "MILVUS_DB_COLLECTION_NAME"
+        },
+        {
+          "valueFrom": "arn:aws:secretsmanager:eu-central-1:366354050833:secret:/projects/deduplication-api-SjnR4i:MILVUS_SEARCH_THRESHOLD::",
+          "name": "MILVUS_SEARCH_THRESHOLD"
+        },
+        {
+          "valueFrom": "arn:aws:secretsmanager:eu-central-1:366354050833:secret:/projects/deduplication-api-SjnR4i:MODEL_NAME::",
+          "name": "MODEL_NAME"
+        }
+      ],
+      "dockerSecurityOptions": null,
+      "memory": 2048,
+      "memoryReservation": null,
+      "volumesFrom": [],
+      "stopTimeout": null,
+      "image": "deduplication-api",
+      "startTimeout": null,
+      "firelensConfiguration": null,
+      "dependsOn": null,
+      "disableNetworking": null,
+      "interactive": null,
+      "healthCheck": null,
+      "essential": true,
+      "links": null,
+      "hostname": null,
+      "extraHosts": null,
+      "pseudoTerminal": null,
+      "user": null,
+      "readonlyRootFilesystem": null,
+      "dockerLabels": null,
+      "systemControls": null,
+      "privileged": null,
+      "name": "container-name"
+    }
+  ],
+  "placementConstraints": [],
+  "memory": "2048",
+  "taskRoleArn": null,
+  "compatibilities": [
+    "EC2",
+    "FARGATE"
+  ],
+  "taskDefinitionArn": "arn:aws:ecs:eu-central-1:366354050833:task-definition/deduplication-api-TD:1",
+  "family": "deduplication-api-TD",
+  "requiresAttributes": [
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
+      "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+    },
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
+      "name": "ecs.capability.execution-role-awslogs"
+    },
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+    },
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+    },
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
+      "name": "ecs.capability.task-eni"
+    },
+    {
+      "targetId": null,
+      "targetType": null,
+      "value": null,
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
+    }
+  ],
+  "pidMode": null,
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "networkMode": "awsvpc",
+  "runtimePlatform": null,
+  "cpu": "1024",
+  "revision": 1,
+  "status": "ACTIVE",
+  "inferenceAccelerators": null,
+  "proxyConfiguration": null,
+  "volumes": []
+}
