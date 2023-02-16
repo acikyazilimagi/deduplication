@@ -1,9 +1,9 @@
 from sentence_transformers import SentenceTransformer
 from sklearn.preprocessing import normalize
+from config import *
 import numpy as np
 import torch
 
-MODEL_NAME = "loodos/bert-base-turkish-uncased" 
 
 class BertTextHandler:
 
@@ -21,12 +21,10 @@ class BertTextHandler:
 
         return False
 
-    def text_to_embedding(self, text: list[str]) -> np.ndarray:
-        if type(text) == str:
-            text = [text]
-        elif type(text[0]) == str:
-            pass
-            
+    def text_to_embedding(self, text: str) -> np.ndarray:
+
+        text = [text]
+
         embeddings = self.model.encode(text)
         embeddings = normalize(embeddings)
 
