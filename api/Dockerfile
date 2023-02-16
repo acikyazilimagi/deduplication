@@ -5,7 +5,7 @@ ENV PYTHONUNBUFFERED=1
 WORKDIR /api
 
 # In order to leverage caching of Docker, install requirements first
-ADD requirements.txt .
+ADD api/requirements.txt .
 
 RUN apt-get update && apt-get -y install gcc && pip install -r requirements.txt
 
