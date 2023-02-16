@@ -75,7 +75,7 @@
       "memoryReservation": null,
       "volumesFrom": [],
       "stopTimeout": null,
-      "image": "deduplication-api",
+      "image": "deduplication-api-service",
       "startTimeout": null,
       "firelensConfiguration": null,
       "dependsOn": null,
