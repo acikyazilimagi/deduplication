@@ -12,7 +12,7 @@ RUN apt-get update && apt-get -y install gcc && pip install -r requirements.txt
 ADD . .
 
 # Expose the default FastAPI port
-EXPOSE 8000
+EXPOSE 80
 
 # Command to run the application
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
