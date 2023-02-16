@@ -16,6 +16,7 @@ text_handler = BertTextHandler()
 def validate_api_key(credentials: HTTPAuthorizationCredentials = Depends(security_scheme)):
     api_key = credentials.credentials
 
+
     if api_key != DEDUPLICATION_API_KEY:
         raise HTTPException(status_code=401, detail="Invalid authorization token")
 
