@@ -2,7 +2,7 @@ FROM python:3.10.9-buster
 
 ENV PYTHONUNBUFFERED=1
 
-WORKDIR /api
+WORKDIR /app
 
 # In order to leverage caching of Docker, install requirements first
 ADD api/requirements.txt .
@@ -15,4 +15,4 @@ ADD . .
 EXPOSE 80
 
 # Command to run the application
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
+CMD ["uvicorn", "/app/api/main:app", "--host", "0.0.0.0", "--port", "80"]
