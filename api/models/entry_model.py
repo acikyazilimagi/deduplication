@@ -1,10 +1,13 @@
 from pydantic import BaseModel
+from pydantic.config import Optional
+
 
 class Entry(BaseModel):
     entry_id: int
     address: str
     reasons: list[str]
     needs: list[str]
+    threshold: Optional[float] = 0.995
 
     def __str__(self):
 

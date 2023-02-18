@@ -25,7 +25,7 @@ class MilvusHandler:
     def get_similar_embeddings(self, embeddings: np.ndarray):
         try:
             search_field = MILVUS_DB_SEARCH_FIELD
-            search_params = {"metric_type": "IP"}
+            search_params = {"metric_type": "IP", "params": {"nprobe": 10}}
             search_limit = MILVUS_DB_SEARCH_LIMIT
             search_expr = None
             similar_embeddings = self.collection.search(embeddings, search_field, param=search_params,

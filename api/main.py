@@ -28,12 +28,13 @@ def health_check():
 async def is_duplicate(entry: Entry, api_key: str = Depends(validate_api_key)) -> Response:
     try:
         entry_text = str(entry)
+
         entry_embeddings = text_handler.text_to_embedding(entry_text)
 
         _is_duplicate = None
         with MilvusHandler() as milvus_handler:
             similar_embeddings = milvus_handler.get_similar_embeddings(entry_embeddings)
-            _is_duplicate = text_handler.is_duplicate(similar_embeddings, MILVUS_SEARCH_THRESHOLD)
+            _is_duplicate = text_handler.is_duplicate(similar_embeddings, entry.threshold)
             milvus_handler.insert_entry(entry.entry_id, entry_embeddings)
 
         return Response(model_name=MODEL_NAME, is_duplicate=_is_duplicate)
