@@ -1,5 +1,6 @@
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from fastapi import FastAPI, HTTPException, Header, Depends
+from prometheus_fastapi_instrumentator import Instrumentator
 from src.bert_text_handler import BertTextHandler
 from src.milvus_handler import MilvusHandler
 from models.response_model import Response
@@ -11,6 +12,10 @@ app = FastAPI()
 security_scheme = HTTPBearer()
 text_handler = BertTextHandler()
 
+
+@app.on_event("startup")
+async def startup():
+    Instrumentator().instrument(app).expose(app)
 
 def validate_api_key(credentials: HTTPAuthorizationCredentials = Depends(security_scheme)):
     api_key = credentials.credentials
