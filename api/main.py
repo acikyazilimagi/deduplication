@@ -16,8 +16,8 @@ app = FastAPI()
 security_scheme = HTTPBearer()
 text_handler = BertTextHandler()
 
-requested_duplicate_count = Counter('requested duplicate count', 'requested duplicate count', ['duplicate'])
-requested_not_duplicate_count = Counter('requested not duplicate count', 'requested not duplicate count', ['duplicate'])
+requested_duplicate_count = Counter('requested_duplicate_count', 'requested duplicate count', ['duplicate'])
+requested_not_duplicate_count = Counter('requested_not_duplicate_count', 'requested not duplicate count', ['duplicate'])
 
 @app.on_event("startup")
 async def startup():
