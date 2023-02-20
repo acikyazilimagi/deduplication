@@ -11,7 +11,6 @@ from src.milvus_handler import MilvusHandler
 from models.response_model import Response
 from models.entry_model import Entry
 from config import *
-import random
 
 app = FastAPI()
 security_scheme = HTTPBearer()
